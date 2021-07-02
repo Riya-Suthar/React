@@ -1,0 +1,51 @@
+.displayExpenses{
+    display: flex;
+    margin: 1em 25em 1em 45em;
+    /* background-color: #6fb3b8; */
+    padding: 2em;
+    /* border-radius: 1em; */
+    justify-content: space-evenly;
+    /* border-bottom: 4px solid #388087; */
+    border-left: 5em solid #81c5d3;
+    color: #388087;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    background-color: rgba(129,197,211,0.4);
+}
+
+
+
+
+.date{
+    padding: 1em 3em 0em 3em;
+    /* background-color: #e18d96; */
+    border-radius: 2em;
+    text-align: center;
+    margin-right: 5em;
+    /* color: #388087; */
+    /* border-bottom: 2px solid #c2edce;
+    border-left: 2px solid #c2edce; */
+    /* border: 3px solid white; */
+}
+
+.expense{
+    padding: 1em 3em 1em 3em;
+    /* background-color: #f6f6f2; */
+    border-radius: 1em;
+    text-align: center;
+    /* color: #388087; */
+    /* border-bottom: 2px solid #c2edce;
+    border-left: 2px solid #c2edce; */
+    /* margin-right: 5em; */
+    /* border: 3px solid white; */
+}
+
+.price{
+    padding: 2em 3em 2em 3em;
+    border-radius: 1em;
+    /* border-bottom: 2px solid #c2edce;
+    border-left: 2px solid #c2edce; */
+    /* background-color: #c1cd97; */
+    /* border-radius: 2em; */
+    /* border: 3px solid white; */
+}
