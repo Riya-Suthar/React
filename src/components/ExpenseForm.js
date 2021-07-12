@@ -1,36 +1,27 @@
 import React, { useState } from 'react';
 import '../css/form.css';
 
-export default function ExpenseForm() {
+export default function ExpenseForm(props) {
 
-
+    const initialState = props.expenses;
 
     const [addedExpense, expenseUpdated] = useState('');
     const [addedDate, dateUpdated] = useState('');
     const [addedAmount, amountUpdated] = useState('');
 
-    const [userExpense, userExpenseUpdated] = useState({
-        expense: '',
-        date: '',
-        amount: ''
-    });
+    const [userExpense, userExpenseUpdated] = useState(initialState);
 
     const addExpense = (event) => {
         event.preventDefault();
         console.log("form submitted");
-        userExpenseUpdated((prevState) => {
-            return (
-                {
-                    ...prevState,
-                    expense: addedExpense,
-                    date: addedDate,
-                    amount: addedAmount
-                }
-            )
-        });
-        console.log(addedExpense);
-        console.log(addedDate);
-        console.log(userExpense);
+        const newExpense = {
+            expense: addedExpense,
+            date: addedDate,
+            price: addedAmount
+        }
+        props.expenseUpdate(newExpense);
+        
+
     }
 
     const expenseTitleChanger = (event) => {
@@ -48,7 +39,10 @@ export default function ExpenseForm() {
     }
 
     const expenseDateChanger = (event) => {
-        dateUpdated(event.target.value);
+        // console.log(event.target.value);
+        const d = new Date(event.target.value);
+        dateUpdated(d);
+        console.log(d);
         userExpenseUpdated((prevState) => {
             return (
                 {

@@ -20,6 +20,7 @@ function App() {
       updateYear(value);
   }
 
+  
   const expenseData = [
     {
       id: 1,
@@ -53,17 +54,30 @@ function App() {
 }
   ]
 
+  const [newExpenseData, expenseUpdater] = useState(expenseData);
+  let id = expenseData.length;
+  const addExpense = (expense)=>{
+    id += 1;
+    const newexpense = {id: id, ...expense};
+    console.log(newexpense);
+    expenseUpdater((prevState)=> {
+      return ([
+        ...prevState,
+        newexpense
+      ])
+    })
+  }
 
   return (
     <div className="homePage">
-      <div className="fixed"><ExpenseForm /></div>
+      <div className="fixed"><ExpenseForm expenses={expenseData} expenseUpdate={addExpense}/></div>
       
       {/* <div>
       {expenses}
       </div> */}
       <div>
       <YearSelector selectYear={yearUpdater}/>
-      <Expense expense={expenseData} year={selectedYear}/>
+      <Expense expense={newExpenseData} year={selectedYear}/>
       </div>
     </div>
 
