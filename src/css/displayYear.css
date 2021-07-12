@@ -1,0 +1,33 @@
+.year{
+    background-color: rgba(129,197,211,0.4);
+    margin: 0em 10em 2em 35em;
+    padding: 2em;
+    /* position: fixed; */
+}
+
+.selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: #388087;
+}
+
+select {
+    margin-right: 3em;
+    width: 8em;
+    font-size: large;
+    color: #388087;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 3px solid #81c5d3;
+    border-bottom: 3px solid #81c5d3;
+    border-radius: 0.5em;
+    /* width: 18em;
+    justify-content: right; */
+}
+
+.month{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

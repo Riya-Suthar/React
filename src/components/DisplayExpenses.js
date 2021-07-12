@@ -6,20 +6,26 @@ import '../css/displayExpenses.css';
 
 class DisplayExpenses extends React.Component{
     render(){
-        return (
-            <div className="displayExpenses">
-                {/* date */}
-           
-                <div className="date"><DisplayDate date={this.props.expense.date} /></div>
-                {/* expense */}
-                <p className="expense"><h3>{this.props.expense.expense}</h3></p>
-                <p className="price">{this.props.expense.price}</p>
-                {/* price */}
-                {/* <div className="price"><DisplayPrice price={this.props.expense.price} /></div> */}
+        if (this.props.expense.date.getFullYear()==this.props.year){
+            return (
+                <div className="displayExpenses">
+                    {/* date */}
+    
+                    
+                    <div className="date"><DisplayDate date={this.props.expense.date} year={this.props.year}/></div>
+                    {/* expense */}
+                    <p className="expense"><h3>{this.props.expense.expense}</h3></p>
+                    <p className="price">{this.props.expense.price}</p>
+                    {/* price */}
+                    {/* <div className="price"><DisplayPrice price={this.props.expense.price} /></div> */}
+                   
+                </div>
                
-            </div>
-           
-        )
+            )
+        }
+        else{
+            return null;
+        }
     }
 }
 
