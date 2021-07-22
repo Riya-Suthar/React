@@ -24,7 +24,7 @@ class DisplayExpenses extends React.Component{
             )
         }
         else{
-            return null;
+           return null;
         }
     }
 }

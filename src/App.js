@@ -6,6 +6,7 @@ import Expense from './components/Expense';
 import ExpenseForm from './components/ExpenseForm';
 import YearSelector from './components/YearSelector';
 import { useState } from 'react';
+import './css/form.css';
 
 function App() {
   const expenses = Expenses.map((expense) => {
@@ -13,6 +14,7 @@ function App() {
   })
 
   const [selectedYear, updateYear] = useState('2019');
+  const [showForm, displayForm] = useState(false);
 
   const yearUpdater = (value) => {
       console.log("in app.js year updater function");
@@ -45,12 +47,6 @@ function App() {
     expense: 'Food',
     price: '1500',
     date: new Date(2020, 6, 26)
-},
-{
-  id: 5,
-  expense: 'rent',
-  price: '5000',
-  date: new Date(2019, 6, 26)
 }
   ]
 
@@ -68,9 +64,23 @@ function App() {
     })
   }
 
+  const formDisplayer = () => {
+    displayForm(true);
+  }
+
+  const stopEditing = () => {
+    displayForm(false);
+  }
+
   return (
     <div className="homePage">
-      <div className="fixed"><ExpenseForm expenses={expenseData} expenseUpdate={addExpense}/></div>
+      <div className="fixed">
+  
+        {!showForm && <div className="displayForm"><button onClick={formDisplayer}>Display Form</button></div>}
+        {showForm && <ExpenseForm expenses={expenseData} expenseUpdate={addExpense} onCancel={stopEditing}/>}
+        
+      </div>
+      
       
       {/* <div>
       {expenses}

@@ -4,11 +4,10 @@ import '../css/form.css';
 export default function ExpenseForm(props) {
 
     const initialState = props.expenses;
-
     const [addedExpense, expenseUpdated] = useState('');
     const [addedDate, dateUpdated] = useState('');
     const [addedAmount, amountUpdated] = useState('');
-
+    let addExpensePressed = 0;
     const [userExpense, userExpenseUpdated] = useState(initialState);
 
     const addExpense = (event) => {
@@ -20,7 +19,8 @@ export default function ExpenseForm(props) {
             price: addedAmount
         }
         props.expenseUpdate(newExpense);
-        
+        // alert("Added Expense");
+        document.getElementById("expense-form").reset();
 
     }
 
@@ -64,9 +64,16 @@ export default function ExpenseForm(props) {
             )
         });
     }
+
+   const cancelExpense = () => {
+       props.onCancel();
+   }
+
+
     return (
-        <form className="expenseAdd" onSubmit={addExpense}>
-            <div className="expenseForm">
+        
+        <form className="expenseAdd" onSubmit={addExpense} id="expense-form">
+            <div className="expenseForm" id="expense-form-fields" >
                 <div className="expenseElement">
                     <label>What is the Expense for?</label>
                     <input type="text" className="expenseInput" onChange={expenseTitleChanger} />
@@ -84,10 +91,17 @@ export default function ExpenseForm(props) {
 
             </div>
             <div className="expenseButton">
+                <button type="button" onClick={cancelExpense}>Cancel</button>
                 <button type="submit">Add Expense</button>
             </div>
+            {/* <div className="expenseButton">
+                <button type="submit" onClick={cancelExpense}>Cancel</button>
+            </div> */}
+            
 
         </form>
+        
+        
     )
 
 }
